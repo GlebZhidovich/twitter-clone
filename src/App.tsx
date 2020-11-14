@@ -1,12 +1,10 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import Index from './pages/sing-in';
 
 function App() {
   return (
     <div className="App">
-      <Button>
-        Hello
-      </Button>
+        <Index/>
     </div>
   );
 }
