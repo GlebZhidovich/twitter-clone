@@ -1,10 +1,10 @@
 import React from 'react';
-import Index from './pages/sing-in';
+import Main from './pages/main';
 
 function App() {
   return (
     <div className="App">
-        <Index/>
+        <Main/>
     </div>
   );
 }

@@ -1,11 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleIcon from '@material-ui/icons/People';
+import { Button, Typography } from '@material-ui/core';
+import CustomModel from '../modals';
+import SingIn from '../modals/sing-in';
+import SingUp from '../modals/sing-up';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+
 
 
 const useStyles = makeStyles({
@@ -29,13 +32,15 @@ const useStyles = makeStyles({
         width: 380,
         '& p': {
             display: 'flex',
+            alignItems: 'center',
             marginBottom: 20,
             color: '#fff'
         }
     },
-    infoItem: {
-        color: '#fff',
-        fontSize: 30
+    infoIcon: {
+        width: 30,
+        height: 30,
+        marginRight: 20
     },
     singIn: {
         background: '#fff'
@@ -52,7 +57,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function Index() {
+export default function Main() {
     const classes = useStyles();
 
     return <div className={classes.wrapper}>
@@ -60,13 +65,13 @@ export default function Index() {
             <div className={classes.infoListWrap}>
                 <ul className={classes.infoList}>
                     <li className={classes.infoList}>
-                        <Typography> <SearchIcon/> Читайте о том, что вам интересно.</Typography>
+                        <Typography> <SearchIcon className={classes.infoIcon}/> Читайте о том, что вам интересно.</Typography>
                     </li>
                     <li className={classes.infoList}>
-                        <Typography> <PeopleIcon/> Узнайте, о чем говорят в мире.</Typography>
+                        <Typography> <PeopleIcon className={classes.infoIcon}/> Узнайте, о чем говорят в мире.</Typography>
                     </li>
                     <li className={classes.infoList}>
-                        <Typography> <ChatBubbleOutlineIcon/> Присоединяйтесь к общению.</Typography>
+                        <Typography> <ChatBubbleOutlineIcon className={classes.infoIcon}/> Присоединяйтесь к общению.</Typography>
                     </li>
                 </ul>
             </div>
@@ -77,10 +82,13 @@ export default function Index() {
                 <br/>
                 <Typography variant="h4" gutterBottom>Узнайте, что происходит в мире прямо сейчас</Typography>
                 <Typography variant="subtitle2" gutterBottom>Присоединяйтесь к Твиттеру прямо сейчас!</Typography>
+                <CustomModel type="contained" name="Зарегистрироваться">
+                    <SingUp/>
+                </CustomModel>
                 <br/>
-                <Button variant="contained" color="primary">Зарегисстрироваться</Button>
-                <br/>
-                <Button variant="outlined" color="primary">Войти</Button>
+                <CustomModel type="outlined" name="войти">
+                    <SingIn/>
+                </CustomModel>
             </div>
         </section>
     </div>
