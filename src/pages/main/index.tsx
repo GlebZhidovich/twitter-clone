@@ -1,64 +1,79 @@
-import React from 'react';
+import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import SearchIcon from '@material-ui/icons/Search';
-import PeopleIcon from '@material-ui/icons/People';
-import { Button, Typography } from '@material-ui/core';
-import CustomModel from '../modals';
-import SingIn from '../modals/sing-in';
-import SingUp from '../modals/sing-up';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import PeopleIcon from '@material-ui/icons/People';
+import SearchIcon from '@material-ui/icons/Search';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import React from 'react';
+import { SingIn } from '../modals/sing-in';
+import { SingUp } from '../modals/sing-up';
 
-
-
-const useStyles = makeStyles({
+const useStyles: () => {
+    wrapper: string,
+    section: string,
+    info: string,
+    infoList: string,
+    infoListWrap: string,
+    infoIcon: string
+    singIn: string,
+    singInWrap: string,
+    singInIcon: string
+} = makeStyles({
     wrapper: {
         display: 'flex',
-        height: '100%'
+        height: '100%',
     },
     section: {
         flex: '0 0 50%',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     info: {
-        background: '#1da1f3'
+        background: '#1da1f3',
     },
-    infoListWrap: {
-        
-    },
+    infoListWrap: {},
     infoList: {
-        width: 380,
+        'width': 380,
         '& p': {
             display: 'flex',
             alignItems: 'center',
             marginBottom: 20,
-            color: '#fff'
-        }
+            color: '#fff',
+        },
     },
     infoIcon: {
         width: 30,
         height: 30,
-        marginRight: 20
+        marginRight: 20,
     },
     singIn: {
-        background: '#fff'
+        background: '#fff',
     },
     singInWrap: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
-        width: 380
+        width: 380,
     },
     singInIcon: {
         height: 40,
-        width: 40
-    }
+        width: 40,
+    },
 });
 
-export default function Main() {
-    const classes = useStyles();
+export function Main(): React.ReactElement {
+    const classes: {
+        wrapper: string,
+        section: string,
+        info: string,
+        infoList: string,
+        infoListWrap: string,
+        infoIcon: string
+        singIn: string,
+        singInWrap: string,
+        singInIcon: string
+    } = useStyles();
 
     return <div className={classes.wrapper}>
         <section className={`${classes.info} ${classes.section}`}>
@@ -78,18 +93,14 @@ export default function Main() {
         </section>
         <section className={`${classes.singIn} ${classes.section}`}>
             <div className={classes.singInWrap}>
-                <TwitterIcon className={classes.singInIcon} color="primary" />
+                <TwitterIcon className={classes.singInIcon} color='primary' />
                 <br/>
-                <Typography variant="h4" gutterBottom>Узнайте, что происходит в мире прямо сейчас</Typography>
-                <Typography variant="subtitle2" gutterBottom>Присоединяйтесь к Твиттеру прямо сейчас!</Typography>
-                <CustomModel type="contained" name="Зарегистрироваться">
-                    <SingUp/>
-                </CustomModel>
+                <Typography variant='h4' gutterBottom>Узнайте, что происходит в мире прямо сейчас</Typography>
+                <Typography variant='subtitle2' gutterBottom>Присоединяйтесь к Твиттеру прямо сейчас!</Typography>
+                <SingUp/>
                 <br/>
-                <CustomModel type="outlined" name="войти">
-                    <SingIn/>
-                </CustomModel>
+                <SingIn/>
             </div>
         </section>
-    </div>
+    </div>;
 }
