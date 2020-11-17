@@ -8,7 +8,6 @@ const useStyles: () => {modal: string, content: string, icon: string } = makeSty
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        outline: 'none',
     },
     content: {
         display: 'flex',
@@ -16,6 +15,7 @@ const useStyles: () => {modal: string, content: string, icon: string } = makeSty
         width: 300,
         padding: 20,
         background: '#fff',
+        outline: 'none',
     },
     icon: {
         width: 40,
