@@ -1,4 +1,4 @@
-import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
+import { BottomNavigation, BottomNavigationAction, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import EmailIcon from '@material-ui/icons/Email';
@@ -10,7 +10,13 @@ import SearchIcon from '@material-ui/icons/Search';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import React, { useState, ChangeEvent, Dispatch, Fragment } from 'react';
 
-const useStyles: () => {navList: string, navIcon: string, navItem: string} = makeStyles({
+type Style = {root: string, navList: string, navIcon: string, navItem: string};
+
+const useStyles: () => Style = makeStyles({
+    root: {
+        display: 'inline-block',
+        padding: 20,
+    },
     navList: {
         display: 'flex',
         flexDirection: 'column',
@@ -19,13 +25,10 @@ const useStyles: () => {navList: string, navIcon: string, navItem: string} = mak
         height: '100%',
     },
     navIcon: {
-        width: 40,
-        height: 40,
-        alignSelf: 'center',
-        marginRight: 10,
     },
     navItem: {
         'maxWidth': 250,
+        'borderRadius': 9999,
         '& span': {
            flexDirection: 'row',
            fontSize: 20,
@@ -33,11 +36,14 @@ const useStyles: () => {navList: string, navIcon: string, navItem: string} = mak
         '& span .MuiBottomNavigationAction-label.Mui-selected': {
             fontSize: 20,
         },
+        '&:hover': {
+          background: 'rgba(0, 114, 254, 0.3);',
+        },
     },
 });
 
 export function Nav(): React.ReactElement {
-    const classes: {navList: string, navIcon: string, navItem: string} = useStyles();
+    const classes: Style = useStyles();
 
     const [value, setValue]: [number, Dispatch<React.SetStateAction<number>>] = useState<number>(0);
     const handleToggle: (event: ChangeEvent<{}>, newValue: number) => void =
@@ -46,23 +52,27 @@ export function Nav(): React.ReactElement {
     };
 
     return (
-        <Fragment>
-            <TwitterIcon color='primary' className={classes.navIcon}/>
+        <div className={classes.root}>
+            <div className={classes.navIcon}>
+                <IconButton>
+                    <TwitterIcon color='primary' fontSize='large'/>
+                </IconButton>
+            </div>
             <BottomNavigation
                 value={value}
                 onChange={handleToggle}
                 showLabels
                 className={classes.navList}
             >
-                <BottomNavigationAction className={classes.navItem} label='Главная' icon={<HomeIcon className={classes.navIcon}/>}/>
-                <BottomNavigationAction className={classes.navItem} label='Поиск' icon={<SearchIcon className={classes.navIcon}/>}/>
+                <BottomNavigationAction className={classes.navItem} label='Главная' icon={<HomeIcon fontSize='large'/>}/>
+                <BottomNavigationAction className={classes.navItem} label='Поиск' icon={<SearchIcon fontSize='large'/>}/>
                 <BottomNavigationAction className={classes.navItem}
-                                        label='Уведомления' icon={<NotificationsIcon className={classes.navIcon}/>}/>
-                <BottomNavigationAction className={classes.navItem} label='Сообщения' icon={<EmailIcon className={classes.navIcon}/>}/>
-                <BottomNavigationAction className={classes.navItem} label='Закладки' icon={<BookmarkIcon className={classes.navIcon}/>}/>
-                <BottomNavigationAction className={classes.navItem} label='Списки' icon={<ListAltIcon className={classes.navIcon}/>}/>
-                <BottomNavigationAction className={classes.navItem} label='Профиль' icon={<PersonIcon className={classes.navIcon}/>}/>
+                                        label='Уведомления' icon={<NotificationsIcon fontSize='large'/>}/>
+                <BottomNavigationAction className={classes.navItem} label='Сообщения' icon={<EmailIcon fontSize='large'/>}/>
+                <BottomNavigationAction className={classes.navItem} label='Закладки' icon={<BookmarkIcon fontSize='large'/>}/>
+                <BottomNavigationAction className={classes.navItem} label='Списки' icon={<ListAltIcon fontSize='large'/>}/>
+                <BottomNavigationAction className={classes.navItem} label='Профиль' icon={<PersonIcon fontSize='large'/>}/>
             </BottomNavigation>
-        </Fragment>
+        </div>
     );
 }

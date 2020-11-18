@@ -8,7 +8,7 @@ import React from 'react';
 import { SingIn } from '../modals/sing-in';
 import { SingUp } from '../modals/sing-up';
 
-const useStyles: () => {
+type Style = {
     wrapper: string,
     section: string,
     info: string,
@@ -18,7 +18,9 @@ const useStyles: () => {
     singIn: string,
     singInWrap: string,
     singInIcon: string
-} = makeStyles({
+};
+
+const useStyles: () => Style = makeStyles({
     wrapper: {
         display: 'flex',
         height: '100%',
@@ -63,17 +65,7 @@ const useStyles: () => {
 });
 
 export function Main(): React.ReactElement {
-    const classes: {
-        wrapper: string,
-        section: string,
-        info: string,
-        infoList: string,
-        infoListWrap: string,
-        infoIcon: string
-        singIn: string,
-        singInWrap: string,
-        singInIcon: string
-    } = useStyles();
+    const classes: Style = useStyles();
 
     return <div className={classes.wrapper}>
         <section className={`${classes.info} ${classes.section}`}>

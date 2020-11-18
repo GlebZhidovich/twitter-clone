@@ -1,35 +1,31 @@
-import { Button, Grid, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
+import { Content } from '../content';
 import { Nav } from '../nav';
+import { Search } from '../search';
 
-const useStyles: (props?: any) => Record<'paper' | 'home' | 'homeNav', string> = makeStyles({
+const useStyles: () => {home: string, homeColumn: string} = makeStyles({
     home: {
         display: 'flex',
     },
-    homeNav: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    paper: {
-        padding: 20,
+    homeColumn: {
+        flex: 1,
         textAlign: 'center',
-        color: '#fff',
     },
 });
 
 export function Home(): React.ReactElement {
-    const classes: Record<'paper' | 'home' | 'homeNav', string> = useStyles();
+    const classes: {home: string, homeColumn: string} = useStyles();
 
     return <div className={classes.home}>
-        <div className={classes.homeNav}>
+        <div className={classes.homeColumn}>
             <Nav/>
         </div>
-        <div>
-
+        <div className={classes.homeColumn}>
+            <Content/>
         </div>
-        <div>
-
+        <div className={classes.homeColumn}>
+            <Search/>
         </div>
     </div>;
 }
