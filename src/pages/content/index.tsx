@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import StarIcon from '@material-ui/icons/Star';
 import React from 'react';
 import photo from '../../assets/img/8BFfB3MjuyU.jpg';
+import { Tweet } from '../tweet';
 
 type Style = {root: string, main: string, frame: string, makeTweet: string, iconWrap: string, makeTweetInput: string, input: string};
 
@@ -56,5 +57,6 @@ export function Content(): React.ReactElement {
                 <Button variant='contained' color='primary'>Твитнуть</Button>
             </div>
         </div>
+        <Tweet/>
     </div>;
 }
