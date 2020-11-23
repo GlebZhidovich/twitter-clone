@@ -7,7 +7,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import PresentToAllIcon from '@material-ui/icons/PresentToAll';
 import RepeatIcon from '@material-ui/icons/Repeat';
 import React from 'react';
-import photo from '../../assets/img/8BFfB3MjuyU.jpg';
+import photo from '../../../../assets/img/8BFfB3MjuyU.jpg';
 
 type Styles = {
     root: string,
@@ -27,6 +27,7 @@ const useStyles: () => Styles = makeStyles({
     root: {
         display: 'flex',
         marginTop: 10,
+        padding: 10,
     },
     iconWrap: {
         padding: 20,

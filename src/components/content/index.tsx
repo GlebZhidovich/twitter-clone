@@ -2,8 +2,7 @@ import { Avatar, Button, IconButton, TextField, Typography } from '@material-ui/
 import { makeStyles } from '@material-ui/core/styles';
 import StarIcon from '@material-ui/icons/Star';
 import React from 'react';
-import photo from '../../assets/img/8BFfB3MjuyU.jpg';
-import { Tweet } from '../tweet';
+import { MakeTweet, Tweet } from './components';
 
 type Style = {root: string, main: string, frame: string, makeTweet: string, iconWrap: string, makeTweetInput: string, input: string};
 
@@ -48,15 +47,9 @@ export function Content(): React.ReactElement {
                 <StarIcon fontSize='large'/>
             </IconButton>
         </div>
-        <div className={`${classes.makeTweet} ${classes.frame}`}>
-            <div className={classes.iconWrap}>
-                <Avatar src={photo}/>
-            </div>
-            <div className={classes.makeTweetInput}>
-                <TextField className={classes.input} label='Что происходит?'/>
-                <Button variant='contained' color='primary'>Твитнуть</Button>
-            </div>
-        </div>
-        <Tweet/>
+        <MakeTweet/>
+        {
+            Array(20).fill(1).map((el: number, i: number): React.ReactElement =>  <Tweet key={i}/>)
+        }
     </div>;
 }

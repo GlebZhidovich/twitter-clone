@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Home } from './pages/home';
-import { Main } from './pages/main';
+import { Home } from './components/home';
+import { Main } from './components/main';
 
 export function App(): React.ReactElement {
   return (
