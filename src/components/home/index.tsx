@@ -5,27 +5,27 @@ import { Nav } from '../nav';
 import { Search } from '../search';
 
 const useStyles: () => {home: string, homeColumn: string} = makeStyles({
-    home: {
-        display: 'flex',
-    },
-    homeColumn: {
-        flex: 1,
-        textAlign: 'center',
-    },
+	home: {
+		display: 'flex',
+	},
+	homeColumn: {
+		flex: 1,
+		textAlign: 'center',
+	},
 });
 
 export function Home(): React.ReactElement {
-    const classes: {home: string, homeColumn: string} = useStyles();
+	const classes: {home: string, homeColumn: string} = useStyles();
 
-    return <div className={classes.home}>
-        <div className={classes.homeColumn}>
-            <Nav/>
-        </div>
-        <div className={classes.homeColumn}>
-            <Content/>
-        </div>
-        <div className={classes.homeColumn}>
-            <Search/>
-        </div>
-    </div>;
+	return <div className={classes.home}>
+		<div className={classes.homeColumn}>
+			<Nav/>
+		</div>
+		<div className={classes.homeColumn}>
+			<Content/>
+		</div>
+		<div className={classes.homeColumn}>
+			<Search/>
+		</div>
+	</div>;
 }

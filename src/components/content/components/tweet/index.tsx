@@ -24,87 +24,87 @@ type Styles = {
 };
 
 const useStyles: () => Styles = makeStyles({
-    root: {
-        display: 'flex',
-        marginTop: 10,
-        padding: 10,
-    },
-    iconWrap: {
-        padding: 20,
-    },
-    frame: {
-        border: '1px solid rgb(230, 236, 240)',
-    },
-    info: {
-        width: '100%',
-    },
-    header: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    name: {
-        marginRight: 10,
-        fontWeight: 500,
-    },
-    title: {},
-    tag: {
-        marginRight: 10,
-    },
-    time: {},
-    body: {},
-    footer: {
-        display: 'flex',
-        justifyContent: 'space-between',
-    },
+	root: {
+		display: 'flex',
+		marginTop: 10,
+		padding: 10,
+	},
+	iconWrap: {
+		padding: 20,
+	},
+	frame: {
+		border: '1px solid rgb(230, 236, 240)',
+	},
+	info: {
+		width: '100%',
+	},
+	header: {
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	name: {
+		marginRight: 10,
+		fontWeight: 500,
+	},
+	title: {},
+	tag: {
+		marginRight: 10,
+	},
+	time: {},
+	body: {},
+	footer: {
+		display: 'flex',
+		justifyContent: 'space-between',
+	},
 });
 
 export function Tweet(): React.ReactElement {
-    const classes: Styles = useStyles();
+	const classes: Styles = useStyles();
 
-    return <div className={`${classes.root} ${classes.frame}`}>
-        <div>
-            <div className={classes.iconWrap}>
-                <Avatar src={photo}/>
-            </div>
-        </div>
-        <div className={classes.info}>
-            <header className={classes.header}>
-                <div className={classes.title}>
-                    <span className={classes.name}>{'Gleb'}</span>
-                    <span className={classes.tag}>{'@Gleb'}</span>
-                    <span className={classes.time}>{'20c'}</span>
-                </div>
-                <div className='setting'>
-                    <IconButton>
-                        <MoreHorizIcon color='primary' fontSize='large'/>
-                    </IconButton>
-                </div>
-            </header>
-            <main className={classes.body}>
-                <div className='postText'>
+	return <div className={`${classes.root} ${classes.frame}`}>
+		<div>
+			<div className={classes.iconWrap}>
+				<Avatar src={photo}/>
+			</div>
+		</div>
+		<div className={classes.info}>
+			<header className={classes.header}>
+				<div className={classes.title}>
+					<span className={classes.name}>{'Gleb'}</span>
+					<span className={classes.tag}>{'@Gleb'}</span>
+					<span className={classes.time}>{'20c'}</span>
+				</div>
+				<div className='setting'>
+					<IconButton>
+						<MoreHorizIcon color='primary' fontSize='large'/>
+					</IconButton>
+				</div>
+			</header>
+			<main className={classes.body}>
+				<div className='postText'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Debitis, expedita id laboriosam laudantium molestiae quas reiciendis!
                     Dolorum eveniet illum totam.
-                </div>
-            </main>
-            <footer className={classes.footer}>
-                <IconButton>
-                    <ChatBubbleOutlineIcon color='primary' fontSize='small'/>
-                </IconButton>
-                <IconButton>
-                    <RepeatIcon color='primary' fontSize='small'/>
-                </IconButton>
-                <IconButton>
-                    <FavoriteBorderIcon color='primary' fontSize='small'/>
-                </IconButton>
-                <IconButton>
-                    <PresentToAllIcon color='primary' fontSize='small'/>
-                </IconButton>
-                <IconButton>
-                    <EqualizerIcon color='primary' fontSize='small'/>
-                </IconButton>
-            </footer>
-        </div>
-    </div>;
+				</div>
+			</main>
+			<footer className={classes.footer}>
+				<IconButton>
+					<ChatBubbleOutlineIcon color='primary' fontSize='small'/>
+				</IconButton>
+				<IconButton>
+					<RepeatIcon color='primary' fontSize='small'/>
+				</IconButton>
+				<IconButton>
+					<FavoriteBorderIcon color='primary' fontSize='small'/>
+				</IconButton>
+				<IconButton>
+					<PresentToAllIcon color='primary' fontSize='small'/>
+				</IconButton>
+				<IconButton>
+					<EqualizerIcon color='primary' fontSize='small'/>
+				</IconButton>
+			</footer>
+		</div>
+	</div>;
 }
