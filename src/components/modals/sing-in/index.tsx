@@ -2,6 +2,7 @@ import { Button, Modal, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const useStyles: () => {modal: string, content: string, icon: string } = makeStyles({
 	modal: {
@@ -25,6 +26,7 @@ const useStyles: () => {modal: string, content: string, icon: string } = makeSty
 
 export function SingIn(): React.ReactElement {
 	const classes: {modal: string, content: string, icon: string } = useStyles();
+	const history = useHistory();
 
 	const [open, setOpen]: [boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState<boolean>(false);
 
@@ -36,6 +38,10 @@ export function SingIn(): React.ReactElement {
 		setOpen(false);
 	};
 
+	const toHomePage: () => void = (): void => {
+		history.push('/home');
+	};
+	
 	return (
 		<div>
 			<Button onClick={handleOpen} variant='outlined' color='primary'>Войти</Button>
@@ -51,7 +57,7 @@ export function SingIn(): React.ReactElement {
 					<br/>
 					<TextField required id='password' label='Password'/>
 					<br/>
-					<Button variant='contained' color='primary'>Войти</Button>
+					<Button onClick={toHomePage} variant='contained' color='primary'>Войти</Button>
 				</div>
 			</Modal>
 		</div>);

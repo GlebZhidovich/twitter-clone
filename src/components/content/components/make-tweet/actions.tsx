@@ -9,19 +9,19 @@ import EventIcon from '@material-ui/icons/Event';
 export function Actions(): React.ReactElement {
 	return (
 		<div>
-			<IconButton size="medium">
+			<IconButton size="small">
 				<CropOriginalIcon fontSize="inherit" />
 			</IconButton>
-			<IconButton size="medium">
+			<IconButton size="small">
 				<GifIcon fontSize="inherit" />
 			</IconButton>
-			<IconButton size="medium">
+			<IconButton size="small">
 				<BarChartIcon fontSize="inherit" />
 			</IconButton>
-			<IconButton size="medium">
+			<IconButton size="small">
 				<InsertEmoticonIcon fontSize="inherit" />
 			</IconButton>
-			<IconButton size="medium">
+			<IconButton size="small">
 				<EventIcon fontSize="inherit" />
 			</IconButton>
 		</div>
